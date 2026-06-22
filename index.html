@@ -272,6 +272,9 @@
   form textarea{resize:vertical;min-height:88px}
   form .btn-fill{background:var(--paper);color:var(--ink);border-color:var(--paper);justify-content:center;margin-top:4px}
   form .btn-fill:hover{transform:translateY(-2px)}
+  .formmsg{font-size:14px;margin:6px 2px 0;min-height:1px}
+  .formmsg.ok{color:#8fe3ad}
+  .formmsg.err{color:#f0a3a3}
 
   /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line);padding:48px 0 60px}
@@ -587,14 +590,17 @@
         <div>
           <form id="leadform">
             <label for="company">Название компании</label>
-            <input id="company" name="company" type="text" placeholder="Acme Inc." required>
+            <input id="company" name="Компания" type="text" placeholder="Acme Inc." required>
             <label for="tg">Telegram или email</label>
-            <input id="tg" name="tg" type="text" placeholder="@username" required>
+            <input id="tg" name="Контакт" type="text" placeholder="@username" required>
             <label for="msg">Запрос</label>
-            <textarea id="msg" name="msg" placeholder="Коротко о задаче, которую хотите автоматизировать"></textarea>
+            <textarea id="msg" name="Запрос" placeholder="Коротко о задаче, которую хотите автоматизировать"></textarea>
+            <input type="hidden" name="_subject" value="Новая заявка с сайта Sablier">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
             <button type="submit" class="btn btn-fill">Отправить менеджеру
               <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
+            <p id="formmsg" class="formmsg" role="status"></p>
           </form>
         </div>
       </div>
@@ -714,14 +720,38 @@
     recalc();
   })();
 
-  // contact form -> opens mail client (no backend yet — REPLACE with your endpoint)
-  document.getElementById('leadform').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const f = e.target;
-    const body = encodeURIComponent(
-      'Компания: ' + f.company.value + '\nКонтакт: ' + f.tg.value + '\n\nЗапрос:\n' + f.msg.value
-    );
-    window.location.href = 'mailto:nazar200728@gmail.com?subject=' +
-      encodeURIComponent('Заявка с сайта — ' + f.company.value) + '&body=' + body;
-  });
+  // contact form -> sends to Formspree (заявки приходят на почту Назара)
+  (function(){
+    const form = document.getElementById('leadform');
+    const msg = document.getElementById('formmsg');
+    const FORM_ENDPOINT = 'https://formspree.io/f/mqevkddn';
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type=submit]');
+      msg.className = 'formmsg';
+      msg.textContent = 'Отправляем…';
+      btn.disabled = true;
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.reset();
+          msg.className = 'formmsg ok';
+          msg.textContent = 'Готово! Заявка отправлена — свяжемся с вами в ближайшее время.';
+        } else {
+          msg.className = 'formmsg err';
+          msg.textContent = 'Не удалось отправить. Напишите напрямую: @nazar_llk';
+        }
+      } catch (err) {
+        msg.className = 'formmsg err';
+        msg.textContent = 'Нет связи с сервером. Напишите напрямую: @nazar_llk';
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  })();
 </script>

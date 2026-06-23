@@ -284,6 +284,12 @@
   .foot-links a:hover{color:var(--ink)}
   .foot-copy{font-size:13px;color:var(--mute-soft);margin-top:26px}
 
+  /* ---------- language switch ---------- */
+  .lang-switch{display:flex;gap:2px;border:1px solid var(--line);border-radius:100px;padding:3px;background:var(--paper)}
+  .lang-btn{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;padding:6px 10px;border:none;background:none;border-radius:100px;cursor:pointer;color:var(--mute);transition:color .2s,background .2s}
+  .lang-btn.active{background:var(--ink);color:var(--paper)}
+  .lang-btn:hover:not(.active){color:var(--ink)}
+
   /* ---------- reveal ---------- */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
@@ -337,16 +343,21 @@
       <span><b>sablier</b></span>
     </a>
     <nav class="nav-links" id="navlinks">
-      <a href="#services">Услуги</a>
-      <a href="#departments">Отделы</a>
-      <a href="#arsenal">Автоматизации</a>
-      <a href="#calc">Калькулятор</a>
-      <a href="#process">Как работаем</a>
-      <a href="#about">О нас</a>
+      <a href="#services" data-i18n="nav_services">Услуги</a>
+      <a href="#departments" data-i18n="nav_departments">Отделы</a>
+      <a href="#arsenal" data-i18n="nav_arsenal">Автоматизации</a>
+      <a href="#calc" data-i18n="nav_calc">Калькулятор</a>
+      <a href="#process" data-i18n="nav_process">Как работаем</a>
+      <a href="#about" data-i18n="nav_about">О нас</a>
     </nav>
     <div class="nav-cta">
-      <a href="#contact" class="btn btn-fill">Консультация</a>
-      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      <div class="lang-switch" id="langswitch">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="me">ME</button>
+      </div>
+      <a href="#contact" class="btn btn-fill" data-i18n="nav_cta">Консультация</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -358,16 +369,16 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">AI-автоматизация полного цикла</span>
-        <h1>Автоматизируем рутину — <em>возвращаем</em> вашей команде <span class="ul">время</span></h1>
-        <p class="lead">Sablier строит AI-системы под ключ: от консалтинга и аудита процессов до разработки, внедрения и сопровождения. Делаем то, что реально экономит часы — а не то, что красиво выглядит на демо.</p>
+        <span class="eyebrow" data-i18n="hero_eyebrow">AI-автоматизация полного цикла</span>
+        <h1 data-i18n-html="hero_h1">Автоматизируем рутину — <em>возвращаем</em> вашей команде <span class="ul">время</span></h1>
+        <p class="lead" data-i18n="hero_lead">Sablier строит AI-системы под ключ: от консалтинга и аудита процессов до разработки, внедрения и сопровождения. Делаем то, что реально экономит часы — а не то, что красиво выглядит на демо.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-fill">Получить консультацию
+          <a href="#contact" class="btn btn-fill"><span data-i18n="hero_cta1">Получить консультацию</span>
             <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="#arsenal" class="btn btn-ghost">Смотреть автоматизации</a>
+          <a href="#arsenal" class="btn btn-ghost" data-i18n="hero_cta2">Смотреть автоматизации</a>
         </div>
-        <div class="hero-note"><span class="dot"></span>30 минут — разберём ваши процессы и честно скажем, где AI даст эффект</div>
+        <div class="hero-note"><span class="dot"></span><span data-i18n="hero_note">30 минут — разберём ваши процессы и честно скажем, где AI даст эффект</span></div>
       </div>
     </div>
   </div>
@@ -375,8 +386,8 @@
   <!-- marquee -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>AI-консалтинг</span><span>ML-модели</span><span>мультиагентные системы</span><span>RAG-боты</span><span>Claude Code</span><span>органический трафик</span><span>контент-системы</span><span>прогноз спроса</span><span>AI DevOps</span><span>аналитические отчёты</span>
-      <span>AI-консалтинг</span><span>ML-модели</span><span>мультиагентные системы</span><span>RAG-боты</span><span>Claude Code</span><span>органический трафик</span><span>контент-системы</span><span>прогноз спроса</span><span>AI DevOps</span><span>аналитические отчёты</span>
+      <span data-i18n="mq1">AI-консалтинг</span><span data-i18n="mq2">ML-модели</span><span data-i18n="mq3">мультиагентные системы</span><span data-i18n="mq4">RAG-боты</span><span>Claude Code</span><span data-i18n="mq6">органический трафик</span><span data-i18n="mq7">контент-системы</span><span data-i18n="mq8">прогноз спроса</span><span>AI DevOps</span><span data-i18n="mq10">аналитические отчёты</span>
+      <span data-i18n="mq1">AI-консалтинг</span><span data-i18n="mq2">ML-модели</span><span data-i18n="mq3">мультиагентные системы</span><span data-i18n="mq4">RAG-боты</span><span>Claude Code</span><span data-i18n="mq6">органический трафик</span><span data-i18n="mq7">контент-системы</span><span data-i18n="mq8">прогноз спроса</span><span>AI DevOps</span><span data-i18n="mq10">аналитические отчёты</span>
     </div>
   </div>
 </section>
@@ -386,10 +397,10 @@
   <div class="wrap">
     <div class="stats-grid">
       <!-- REPLACE: поставьте свои реальные цифры -->
-      <div class="stat"><div class="num" data-count="100" data-suffix="+">0</div><div class="cap">автоматизаций в продакшене</div></div>
-      <div class="stat"><div class="num" data-count="40" data-suffix="+">0</div><div class="cap">компаний-клиентов</div></div>
-      <div class="stat"><div class="num" data-count="18" data-suffix=" ч">0</div><div class="cap">средняя экономия в неделю на отдел</div></div>
-      <div class="stat"><div class="num" data-count="1" data-suffix="–3 нед">0</div><div class="cap">от задачи до рабочего решения</div></div>
+      <div class="stat"><div class="num"><span data-count="100">0</span><span data-i18n="st1_suf">+</span></div><div class="cap" data-i18n="st1_cap">автоматизаций в продакшене</div></div>
+      <div class="stat"><div class="num"><span data-count="40">0</span><span data-i18n="st2_suf">+</span></div><div class="cap" data-i18n="st2_cap">компаний-клиентов</div></div>
+      <div class="stat"><div class="num"><span data-count="18">0</span><span data-i18n="st3_suf"> ч</span></div><div class="cap" data-i18n="st3_cap">средняя экономия в неделю на отдел</div></div>
+      <div class="stat"><div class="num"><span data-count="1">0</span><span data-i18n="st4_suf">–3 нед</span></div><div class="cap" data-i18n="st4_cap">от задачи до рабочего решения</div></div>
     </div>
   </div>
 </section>
@@ -398,28 +409,28 @@
 <section id="services">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Услуги</span>
-      <h2>Три формата работы — <em>от пилота до партнёрства</em></h2>
-      <p>Не «AI ради AI». Сначала разбираем процесс, потом подбираем технологию. Если задачу решает простая автоматизация без AI — так и скажем.</p>
+      <span class="eyebrow" data-i18n="svc_eyebrow">Услуги</span>
+      <h2 data-i18n-html="svc_h2">Три формата работы — <em>от пилота до партнёрства</em></h2>
+      <p data-i18n="svc_p">Не «AI ради AI». Сначала разбираем процесс, потом подбираем технологию. Если задачу решает простая автоматизация без AI — так и скажем.</p>
     </div>
     <div class="svc-grid">
       <div class="svc reveal">
-        <span class="idx">01 / Консалтинг</span>
-        <h3>Аудит и стратегия</h3>
-        <p>Разбираем процессы ваших отделов и находим точки, где AI и автоматизация дадут максимальный эффект. Оценка ROI, приоритизация задач, дорожная карта внедрения.</p>
-        <div class="tags"><span class="tag">аудит процессов</span><span class="tag">ROI</span><span class="tag">roadmap</span></div>
+        <span class="idx" data-i18n="svc1_idx">01 / Консалтинг</span>
+        <h3 data-i18n="svc1_h3">Аудит и стратегия</h3>
+        <p data-i18n="svc1_p">Разбираем процессы ваших отделов и находим точки, где AI и автоматизация дадут максимальный эффект. Оценка ROI, приоритизация задач, дорожная карта внедрения.</p>
+        <div class="tags"><span class="tag" data-i18n="svc1_t1">аудит процессов</span><span class="tag">ROI</span><span class="tag">roadmap</span></div>
       </div>
       <div class="svc reveal">
-        <span class="idx">02 / Полная автоматизация</span>
-        <h3>Системы под ключ</h3>
-        <p>Мультиагентные системы, RAG-боты, ML-модели и специализированные пайплайны. Архитектура, бэкенд, интерфейс, деплой — и сопровождение после запуска.</p>
-        <div class="tags"><span class="tag">Claude Code</span><span class="tag">мультиагенты</span><span class="tag">RAG</span><span class="tag">ML</span></div>
+        <span class="idx" data-i18n="svc2_idx">02 / Полная автоматизация</span>
+        <h3 data-i18n="svc2_h3">Системы под ключ</h3>
+        <p data-i18n="svc2_p">Мультиагентные системы, RAG-боты, ML-модели и специализированные пайплайны. Архитектура, бэкенд, интерфейс, деплой — и сопровождение после запуска.</p>
+        <div class="tags"><span class="tag">Claude Code</span><span class="tag" data-i18n="svc2_t2">мультиагенты</span><span class="tag">RAG</span><span class="tag">ML</span></div>
       </div>
       <div class="svc reveal">
-        <span class="idx">03 / Внедрение</span>
-        <h3>Запуск и сопровождение</h3>
-        <p>Встраиваем решения в реальные процессы команды, обучаем сотрудников и поддерживаем системы в продакшене, чтобы они жили и развивались без нас.</p>
-        <div class="tags"><span class="tag">интеграция</span><span class="tag">обучение</span><span class="tag">поддержка</span></div>
+        <span class="idx" data-i18n="svc3_idx">03 / Внедрение</span>
+        <h3 data-i18n="svc3_h3">Запуск и сопровождение</h3>
+        <p data-i18n="svc3_p">Встраиваем решения в реальные процессы команды, обучаем сотрудников и поддерживаем системы в продакшене, чтобы они жили и развивались без нас.</p>
+        <div class="tags"><span class="tag" data-i18n="svc3_t1">интеграция</span><span class="tag" data-i18n="svc3_t2">обучение</span><span class="tag" data-i18n="svc3_t3">поддержка</span></div>
       </div>
     </div>
   </div>
@@ -429,17 +440,17 @@
 <section id="departments" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Где работает AI</span>
-      <h2>Внедряем <em>в каждый отдел</em></h2>
-      <p>Конкретные решения под задачи каждой команды — там, где рутина съедает больше всего времени.</p>
+      <span class="eyebrow" data-i18n="dep_eyebrow">Где работает AI</span>
+      <h2 data-i18n-html="dep_h2">Внедряем <em>в каждый отдел</em></h2>
+      <p data-i18n="dep_p">Конкретные решения под задачи каждой команды — там, где рутина съедает больше всего времени.</p>
     </div>
     <div class="dep-grid">
-      <div class="dep reveal"><h4><span class="k">01</span> Продажи и CRM</h4><p>Обработка заявок, скоринг лидов, настройка или разработка кастомной CRM.</p></div>
-      <div class="dep reveal"><h4><span class="k">02</span> Маркетинг</h4><p>Контент-системы, анализ конкурентов, органический трафик и SEO-пайплайны.</p></div>
-      <div class="dep reveal"><h4><span class="k">03</span> Поддержка</h4><p>Анализ 100% звонков, контроль качества коммуникации, отчёты для руководителей.</p></div>
-      <div class="dep reveal"><h4><span class="k">04</span> Закупки и склад</h4><p>Прогноз спроса, анализ остатков, рекомендации объёмов заказов.</p></div>
-      <div class="dep reveal"><h4><span class="k">05</span> Операции</h4><p>Суммаризация рабочих чатов, задачи из переписок, автоматическая отчётность.</p></div>
-      <div class="dep reveal"><h4><span class="k">06</span> Руководство</h4><p>Ежедневные дайджесты, мониторинг рынка, аналитические отчёты за минуты.</p></div>
+      <div class="dep reveal"><h4><span class="k">01</span> <span data-i18n="dep1_h">Продажи и CRM</span></h4><p data-i18n="dep1_p">Обработка заявок, скоринг лидов, настройка или разработка кастомной CRM.</p></div>
+      <div class="dep reveal"><h4><span class="k">02</span> <span data-i18n="dep2_h">Маркетинг</span></h4><p data-i18n="dep2_p">Контент-системы, анализ конкурентов, органический трафик и SEO-пайплайны.</p></div>
+      <div class="dep reveal"><h4><span class="k">03</span> <span data-i18n="dep3_h">Поддержка</span></h4><p data-i18n="dep3_p">Анализ 100% звонков, контроль качества коммуникации, отчёты для руководителей.</p></div>
+      <div class="dep reveal"><h4><span class="k">04</span> <span data-i18n="dep4_h">Закупки и склад</span></h4><p data-i18n="dep4_p">Прогноз спроса, анализ остатков, рекомендации объёмов заказов.</p></div>
+      <div class="dep reveal"><h4><span class="k">05</span> <span data-i18n="dep5_h">Операции</span></h4><p data-i18n="dep5_p">Суммаризация рабочих чатов, задачи из переписок, автоматическая отчётность.</p></div>
+      <div class="dep reveal"><h4><span class="k">06</span> <span data-i18n="dep6_h">Руководство</span></h4><p data-i18n="dep6_p">Ежедневные дайджесты, мониторинг рынка, аналитические отчёты за минуты.</p></div>
     </div>
   </div>
 </section>
@@ -448,35 +459,35 @@
 <section id="arsenal">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Арсенал решений</span>
-      <h2>Автоматизации, которые <em>уже работают</em></h2>
-      <p>Готовые сценарии, проверенные в продакшене. Каждый — не демо и не концепт, а реальное рабочее решение. Адаптируем под ваш контекст за 1–3 недели.</p>
+      <span class="eyebrow" data-i18n="ars_eyebrow">Арсенал решений</span>
+      <h2 data-i18n-html="ars_h2">Автоматизации, которые <em>уже работают</em></h2>
+      <p data-i18n="ars_p">Готовые сценарии, проверенные в продакшене. Каждый — не демо и не концепт, а реальное рабочее решение. Адаптируем под ваш контекст за 1–3 недели.</p>
     </div>
 
     <div class="ars-filters reveal" id="filters">
-      <button class="chip active" data-f="all">Все</button>
-      <button class="chip" data-f="content">Контент</button>
-      <button class="chip" data-f="sales">Продажи</button>
-      <button class="chip" data-f="ops">Операции</button>
-      <button class="chip" data-f="data">Данные и ML</button>
+      <button class="chip active" data-f="all" data-i18n="flt_all">Все</button>
+      <button class="chip" data-f="content" data-i18n="flt_content">Контент</button>
+      <button class="chip" data-f="sales" data-i18n="flt_sales">Продажи</button>
+      <button class="chip" data-f="ops" data-i18n="flt_ops">Операции</button>
+      <button class="chip" data-f="data" data-i18n="flt_data">Данные и ML</button>
     </div>
 
     <div class="ars-grid" id="arsgrid">
-      <div class="ars reveal" data-cat="content"><span class="cat">Контент</span><h4>AI-копирайтер</h4><p>Составляет контент-план, генерирует тексты и изображения, публикует по расписанию. Человек остаётся там, где нужно решение — редактура и стратегия.</p><div class="tags"><span class="tag">Claude</span><span class="tag">OpenAI</span><span class="tag">Ayrshare</span></div></div>
-      <div class="ars reveal" data-cat="content"><span class="cat">Маркетинг</span><h4>Email-воронки конкурентов</h4><p>Автоматический сбор и парсинг email-рассылок конкурентов для анализа их коммуникации и мессенджинга.</p><div class="tags"><span class="tag">IMAP</span><span class="tag">OpenAI</span></div></div>
+      <div class="ars reveal" data-cat="content"><span class="cat" data-i18n="a1_cat">Контент</span><h4 data-i18n="a1_h">AI-копирайтер</h4><p data-i18n="a1_p">Составляет контент-план, генерирует тексты и изображения, публикует по расписанию. Человек остаётся там, где нужно решение — редактура и стратегия.</p><div class="tags"><span class="tag">Claude</span><span class="tag">OpenAI</span><span class="tag">Ayrshare</span></div></div>
+      <div class="ars reveal" data-cat="content"><span class="cat" data-i18n="a2_cat">Маркетинг</span><h4 data-i18n="a2_h">Email-воронки конкурентов</h4><p data-i18n="a2_p">Автоматический сбор и парсинг email-рассылок конкурентов для анализа их коммуникации и мессенджинга.</p><div class="tags"><span class="tag">IMAP</span><span class="tag">OpenAI</span></div></div>
 
-      <div class="ars reveal" data-cat="sales"><span class="cat">Продажи</span><h4>Контроль качества звонков</h4><p>Транскрибирует звонки менеджеров, оценивает по вашим критериям и ежедневно присылает руководителю отчёт с рекомендациями.</p><div class="tags"><span class="tag">Whisper</span><span class="tag">Claude</span><span class="tag">Python</span></div></div>
-      <div class="ars reveal" data-cat="sales"><span class="cat">Чат-боты</span><h4>Чат-бот + CRM / Sheets</h4><p>Связывает чат-бот с вашей CRM или Google Sheets — лиды автоматически попадают в систему.</p><div class="tags"><span class="tag">Leeloo</span><span class="tag">Sheets</span></div></div>
-      <div class="ars reveal" data-cat="sales"><span class="cat">CRM-стек</span><h4>Настройка и кастомные CRM</h4><p>Настраиваем Uspacy, KeyCRM, Pipedrive, HubSpot — или создаём кастомную CRM под ваши процессы. Квалификация лидов, рассылки.</p><div class="tags"><span class="tag">Uspacy</span><span class="tag">KeyCRM</span><span class="tag">кастом</span></div></div>
+      <div class="ars reveal" data-cat="sales"><span class="cat" data-i18n="a3_cat">Продажи</span><h4 data-i18n="a3_h">Контроль качества звонков</h4><p data-i18n="a3_p">Транскрибирует звонки менеджеров, оценивает по вашим критериям и ежедневно присылает руководителю отчёт с рекомендациями.</p><div class="tags"><span class="tag">Whisper</span><span class="tag">Claude</span><span class="tag">Python</span></div></div>
+      <div class="ars reveal" data-cat="sales"><span class="cat" data-i18n="a4_cat">Чат-боты</span><h4>Чат-бот + CRM / Sheets</h4><p data-i18n="a4_p">Связывает чат-бот с вашей CRM или Google Sheets — лиды автоматически попадают в систему.</p><div class="tags"><span class="tag">Leeloo</span><span class="tag">Sheets</span></div></div>
+      <div class="ars reveal" data-cat="sales"><span class="cat" data-i18n="a5_cat">CRM-стек</span><h4 data-i18n="a5_h">Настройка и кастомные CRM</h4><p data-i18n="a5_p">Настраиваем Uspacy, KeyCRM, Pipedrive, HubSpot — или создаём кастомную CRM под ваши процессы. Квалификация лидов, рассылки.</p><div class="tags"><span class="tag">Uspacy</span><span class="tag">KeyCRM</span><span class="tag" data-i18n="a5_t3">кастом</span></div></div>
 
-      <div class="ars reveal" data-cat="ops"><span class="cat">Аналитика</span><h4>Дайджест Telegram</h4><p>AI читает каналы и рабочие чаты, вытягивает важное и каждый день собирает короткий дайджест. Вместо 200 непрочитанных — 5 предложений о том, что реально произошло.</p><div class="tags"><span class="tag">OpenAI</span><span class="tag">Telegram</span></div></div>
-      <div class="ars reveal" data-cat="ops"><span class="cat">Коммуникации</span><h4>Work Chat Checker</h4><p>AI читает групповые чаты менеджеров, вытягивает договорённости и формирует задачи команде.</p><div class="tags"><span class="tag">Telegram</span><span class="tag">Claude</span></div></div>
-      <div class="ars reveal" data-cat="ops"><span class="cat">Отчётность</span><h4>Автоматические отчёты</h4><p>Ежедневные, недельные и месячные отчёты для руководителя приходят в мессенджер — без утренних совещаний.</p><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Telegram</span></div></div>
-      <div class="ars reveal" data-cat="ops"><span class="cat">Учёт</span><h4>AI-бухгалтер</h4><p>Принимает чеки в виде фото и голосовых, сам распознаёт, категоризирует расходы и ведёт учёт. Вместо разбора пачки скриншотов — готовая таблица.</p><div class="tags"><span class="tag">Whisper</span><span class="tag">Claude</span><span class="tag">Sheets</span></div></div>
+      <div class="ars reveal" data-cat="ops"><span class="cat" data-i18n="a6_cat">Аналитика</span><h4 data-i18n="a6_h">Дайджест Telegram</h4><p data-i18n="a6_p">AI читает каналы и рабочие чаты, вытягивает важное и каждый день собирает короткий дайджест. Вместо 200 непрочитанных — 5 предложений о том, что реально произошло.</p><div class="tags"><span class="tag">OpenAI</span><span class="tag">Telegram</span></div></div>
+      <div class="ars reveal" data-cat="ops"><span class="cat" data-i18n="a7_cat">Коммуникации</span><h4>Work Chat Checker</h4><p data-i18n="a7_p">AI читает групповые чаты менеджеров, вытягивает договорённости и формирует задачи команде.</p><div class="tags"><span class="tag">Telegram</span><span class="tag">Claude</span></div></div>
+      <div class="ars reveal" data-cat="ops"><span class="cat" data-i18n="a8_cat">Отчётность</span><h4 data-i18n="a8_h">Автоматические отчёты</h4><p data-i18n="a8_p">Ежедневные, недельные и месячные отчёты для руководителя приходят в мессенджер — без утренних совещаний.</p><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Telegram</span></div></div>
+      <div class="ars reveal" data-cat="ops"><span class="cat" data-i18n="a9_cat">Учёт</span><h4 data-i18n="a9_h">AI-бухгалтер</h4><p data-i18n="a9_p">Принимает чеки в виде фото и голосовых, сам распознаёт, категоризирует расходы и ведёт учёт. Вместо разбора пачки скриншотов — готовая таблица.</p><div class="tags"><span class="tag">Whisper</span><span class="tag">Claude</span><span class="tag">Sheets</span></div></div>
 
-      <div class="ars reveal" data-cat="data"><span class="cat">Логистика</span><h4>AI-анализ склада</h4><p>Смотрит на остатки, прогнозирует спрос и заранее предупреждает менеджеров о товарах с риском застоя или дефицита.</p><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Gemini</span></div></div>
-      <div class="ars reveal" data-cat="data"><span class="cat">База знаний</span><h4>RAG-бот по базе знаний</h4><p>Чат-бот отвечает на вопросы команды по внутренней документации — быстро и со ссылками на источники.</p><div class="tags"><span class="tag">pgvector</span><span class="tag">Claude</span></div></div>
-      <div class="ars reveal" data-cat="data"><span class="cat">Парсинг</span><h4>Парсеры порталов</h4><p>Автоматически собирают и структурируют открытые данные с порталов Украины, США и ЕС.</p><div class="tags"><span class="tag">Playwright</span><span class="tag">Claude</span></div></div>
+      <div class="ars reveal" data-cat="data"><span class="cat" data-i18n="a10_cat">Логистика</span><h4 data-i18n="a10_h">AI-анализ склада</h4><p data-i18n="a10_p">Смотрит на остатки, прогнозирует спрос и заранее предупреждает менеджеров о товарах с риском застоя или дефицита.</p><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Gemini</span></div></div>
+      <div class="ars reveal" data-cat="data"><span class="cat" data-i18n="a11_cat">База знаний</span><h4 data-i18n="a11_h">RAG-бот по базе знаний</h4><p data-i18n="a11_p">Чат-бот отвечает на вопросы команды по внутренней документации — быстро и со ссылками на источники.</p><div class="tags"><span class="tag">pgvector</span><span class="tag">Claude</span></div></div>
+      <div class="ars reveal" data-cat="data"><span class="cat" data-i18n="a12_cat">Парсинг</span><h4 data-i18n="a12_h">Парсеры порталов</h4><p data-i18n="a12_p">Автоматически собирают и структурируют открытые данные с порталов Украины, США и ЕС.</p><div class="tags"><span class="tag">Playwright</span><span class="tag">Claude</span></div></div>
     </div>
   </div>
 </section>
@@ -485,27 +496,27 @@
 <section id="process">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Форматы сотрудничества</span>
-      <h2>Начинаем с малого — <em>масштабируем то, что дало эффект</em></h2>
+      <span class="eyebrow" data-i18n="proc_eyebrow">Форматы сотрудничества</span>
+      <h2 data-i18n-html="proc_h2">Начинаем с малого — <em>масштабируем то, что дало эффект</em></h2>
     </div>
     <div class="proc">
       <div class="step reveal">
-        <span class="meta">Шаг 1 · 2–4 недели</span>
-        <h3>Пилот</h3>
-        <div class="for">Проверить AI на реальной задаче без больших обязательств.</div>
-        <ul><li>Автоматизация одного процесса или отдела</li><li>Рабочее решение в вашей инфраструктуре</li><li>Измеримый эффект до масштабирования</li></ul>
+        <span class="meta" data-i18n="step1_meta">Шаг 1 · 2–4 недели</span>
+        <h3 data-i18n="step1_h">Пилот</h3>
+        <div class="for" data-i18n="step1_for">Проверить AI на реальной задаче без больших обязательств.</div>
+        <ul><li data-i18n="step1_l1">Автоматизация одного процесса или отдела</li><li data-i18n="step1_l2">Рабочее решение в вашей инфраструктуре</li><li data-i18n="step1_l3">Измеримый эффект до масштабирования</li></ul>
       </div>
       <div class="step reveal">
-        <span class="meta">Шаг 2 · от 2 месяцев</span>
-        <h3>Полный цикл</h3>
-        <div class="for">Системно внедрять AI в несколько отделов сразу.</div>
-        <ul><li>Аудит процессов и дорожная карта</li><li>3–5+ решений под ключ в разных отделах</li><li>ML-модели и разработка на Claude Code</li></ul>
+        <span class="meta" data-i18n="step2_meta">Шаг 2 · от 2 месяцев</span>
+        <h3 data-i18n="step2_h">Полный цикл</h3>
+        <div class="for" data-i18n="step2_for">Системно внедрять AI в несколько отделов сразу.</div>
+        <ul><li data-i18n="step2_l1">Аудит процессов и дорожная карта</li><li data-i18n="step2_l2">3–5+ решений под ключ в разных отделах</li><li data-i18n="step2_l3">ML-модели и разработка на Claude Code</li></ul>
       </div>
       <div class="step reveal">
-        <span class="meta">Шаг 3 · постоянно</span>
-        <h3>Сопровождение</h3>
-        <div class="for">AI уже работает — нужно поддерживать и развивать.</div>
-        <ul><li>Мониторинг и поддержка систем</li><li>Новые автоматизации по мере роста</li><li>Обучение команды и передача знаний</li></ul>
+        <span class="meta" data-i18n="step3_meta">Шаг 3 · постоянно</span>
+        <h3 data-i18n="step3_h">Сопровождение</h3>
+        <div class="for" data-i18n="step3_for">AI уже работает — нужно поддерживать и развивать.</div>
+        <ul><li data-i18n="step3_l1">Мониторинг и поддержка систем</li><li data-i18n="step3_l2">Новые автоматизации по мере роста</li><li data-i18n="step3_l3">Обучение команды и передача знаний</li></ul>
       </div>
     </div>
   </div>
@@ -515,39 +526,39 @@
 <section id="calc" style="padding-top:0">
   <div class="wrap">
     <div class="calc reveal">
-      <span class="eyebrow">Калькулятор экономии</span>
-      <h2>Сколько вернёт автоматизация <em>лично вам</em></h2>
-      <p class="sub">Подвигайте ползунки под свою ситуацию — расчёт обновится мгновенно.</p>
+      <span class="eyebrow" data-i18n="calc_eyebrow">Калькулятор экономии</span>
+      <h2 data-i18n-html="calc_h2">Сколько вернёт автоматизация <em>лично вам</em></h2>
+      <p class="sub" data-i18n="calc_sub">Подвигайте ползунки под свою ситуацию — расчёт обновится мгновенно.</p>
       <div class="calc-grid">
         <div class="calc-inputs">
           <div class="calc-row">
-            <div class="top"><span class="lbl">Часов в неделю на рутину</span><span class="val"><span id="c-hours">10</span> ч</span></div>
+            <div class="top"><span class="lbl" data-i18n="calc_lbl_hours">Часов в неделю на рутину</span><span class="val"><span id="c-hours">10</span> <span data-i18n="unit_h">ч</span></span></div>
             <input type="range" id="r-hours" min="1" max="60" value="10">
           </div>
           <div class="calc-row">
-            <div class="top"><span class="lbl">Сколько человек этим заняты</span><span class="val" id="c-people">2</span></div>
+            <div class="top"><span class="lbl" data-i18n="calc_lbl_people">Сколько человек этим заняты</span><span class="val" id="c-people">2</span></div>
             <input type="range" id="r-people" min="1" max="30" value="2">
           </div>
           <div class="calc-row">
-            <div class="top"><span class="lbl">Стоимость часа работы</span><span class="val">€<span id="c-rate">40</span></span></div>
+            <div class="top"><span class="lbl" data-i18n="calc_lbl_rate">Стоимость часа работы</span><span class="val">€<span id="c-rate">40</span></span></div>
             <input type="range" id="r-rate" min="5" max="150" step="5" value="40">
           </div>
           <div class="calc-row">
-            <div class="top"><span class="lbl">Какую часть удастся автоматизировать</span><span class="val"><span id="c-auto">70</span>%</span></div>
+            <div class="top"><span class="lbl" data-i18n="calc_lbl_auto">Какую часть удастся автоматизировать</span><span class="val"><span id="c-auto">70</span>%</span></div>
             <input type="range" id="r-auto" min="10" max="100" step="5" value="70">
           </div>
         </div>
         <div class="calc-result">
-          <span class="rlbl">Экономия в год</span>
+          <span class="rlbl" data-i18n="calc_rlbl">Экономия в год</span>
           <div class="money" id="c-money">€ 29 120</div>
           <div class="pair">
-            <div><div class="big" id="c-hoursyear">728 ч</div><div class="cap">высвобождённых часов в год</div></div>
-            <div><div class="big" id="c-days">91 дн.</div><div class="cap">рабочих дней команды</div></div>
+            <div><div class="big" id="c-hoursyear">728 ч</div><div class="cap" data-i18n="calc_cap_hours">высвобождённых часов в год</div></div>
+            <div><div class="big" id="c-days">91 дн.</div><div class="cap" data-i18n="calc_cap_days">рабочих дней команды</div></div>
           </div>
-          <div class="note">Это оценка: точные цифры считаем на бесплатном разборе. Формула — освобождённые часы × ставка × 52 недели.</div>
+          <div class="note" data-i18n="calc_note">Это оценка: точные цифры считаем на бесплатном разборе. Формула — освобождённые часы × ставка × 52 недели.</div>
         </div>
       </div>
-      <div class="calc-cta"><a href="#contact" class="btn btn-fill">Обсудить мою задачу</a></div>
+      <div class="calc-cta"><a href="#contact" class="btn btn-fill" data-i18n="calc_cta">Обсудить мою задачу</a></div>
     </div>
   </div>
 </section>
@@ -557,16 +568,16 @@
   <div class="wrap">
     <div class="about-grid">
       <div class="reveal">
-        <span class="eyebrow">О нас</span>
-        <h2 class="serif" style="font-size:clamp(30px,4vw,46px);line-height:1.08;margin:18px 0 22px">Практики, а не теоретики</h2>
-        <p>Мы строим AI-решения полного цикла: от консалтинга и ML-моделей до продакшен-систем. Знаем бизнес-процессы изнутри, поэтому автоматизируем то, что реально экономит время, а не то, что эффектно выглядит на демо.</p>
-        <p>Работаем как технологический партнёр: <strong>аудит → архитектура → разработка → внедрение в отделы → обучение команды → поддержка</strong>. С официальными контрактами, NDA и SLA для корпоративных клиентов.</p>
+        <span class="eyebrow" data-i18n="about_eyebrow">О нас</span>
+        <h2 class="serif" style="font-size:clamp(30px,4vw,46px);line-height:1.08;margin:18px 0 22px" data-i18n="about_h2">Практики, а не теоретики</h2>
+        <p data-i18n="about_p1">Мы строим AI-решения полного цикла: от консалтинга и ML-моделей до продакшен-систем. Знаем бизнес-процессы изнутри, поэтому автоматизируем то, что реально экономит время, а не то, что эффектно выглядит на демо.</p>
+        <p data-i18n-html="about_p2">Работаем как технологический партнёр: <strong>аудит → архитектура → разработка → внедрение в отделы → обучение команды → поддержка</strong>. С официальными контрактами, NDA и SLA для корпоративных клиентов.</p>
       </div>
       <div class="reveal">
         <div class="principles">
-          <div class="principle"><span class="n">01</span><div><h4>Сначала процесс</h4><p>Сначала разбираем бизнес-процесс, потом подбираем технологию.</p></div></div>
-          <div class="principle"><span class="n">02</span><div><h4>Честная оценка</h4><p>Не продаём AI там, где достаточно простой автоматизации.</p></div></div>
-          <div class="principle"><span class="n">03</span><div><h4>Передаём знания</h4><p>Обучаем вашу команду, чтобы решение жило без нас.</p></div></div>
+          <div class="principle"><span class="n">01</span><div><h4 data-i18n="pr1_h">Сначала процесс</h4><p data-i18n="pr1_p">Сначала разбираем бизнес-процесс, потом подбираем технологию.</p></div></div>
+          <div class="principle"><span class="n">02</span><div><h4 data-i18n="pr2_h">Честная оценка</h4><p data-i18n="pr2_p">Не продаём AI там, где достаточно простой автоматизации.</p></div></div>
+          <div class="principle"><span class="n">03</span><div><h4 data-i18n="pr3_h">Передаём знания</h4><p data-i18n="pr3_p">Обучаем вашу команду, чтобы решение жило без нас.</p></div></div>
         </div>
       </div>
     </div>
@@ -579,9 +590,9 @@
     <div class="contact" id="contact">
       <div class="contact-grid">
         <div>
-          <h2>Расскажите о своих процессах — <em>покажем, где AI даст эффект</em></h2>
-          <p class="desc">30-минутная консультация. Без презентаций на час и давления продаж: разберём задачу и честно скажем, что стоит внедрять.</p>
-          <p class="direct">Или напишите Назару напрямую:<br>
+          <h2 data-i18n-html="contact_h2">Расскажите о своих процессах — <em>покажем, где AI даст эффект</em></h2>
+          <p class="desc" data-i18n="contact_desc">30-минутная консультация. Без презентаций на час и давления продаж: разберём задачу и честно скажем, что стоит внедрять.</p>
+          <p class="direct" data-i18n-html="contact_direct">Или напишите Назару напрямую:<br>
             Telegram <a href="https://t.me/nazar_llk" target="_blank" rel="noopener">@nazar_llk</a> ·
             WhatsApp <a href="https://wa.me/38268674235" target="_blank" rel="noopener">+38 268 674 235</a><br>
             Email <a href="mailto:nazar200728@gmail.com">nazar200728@gmail.com</a>
@@ -589,15 +600,15 @@
         </div>
         <div>
           <form id="leadform">
-            <label for="company">Название компании</label>
+            <label for="company" data-i18n="form_l_company">Название компании</label>
             <input id="company" name="Компания" type="text" placeholder="Acme Inc." required>
-            <label for="tg">Telegram или email</label>
+            <label for="tg" data-i18n="form_l_contact">Telegram или email</label>
             <input id="tg" name="Контакт" type="text" placeholder="@username" required>
-            <label for="msg">Запрос</label>
-            <textarea id="msg" name="Запрос" placeholder="Коротко о задаче, которую хотите автоматизировать"></textarea>
+            <label for="msg" data-i18n="form_l_msg">Запрос</label>
+            <textarea id="msg" name="Запрос" data-i18n-ph="form_ph_msg" placeholder="Коротко о задаче, которую хотите автоматизировать"></textarea>
             <input type="hidden" name="_subject" value="Новая заявка с сайта Sablier">
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-            <button type="submit" class="btn btn-fill">Отправить менеджеру
+            <button type="submit" class="btn btn-fill"><span data-i18n="form_btn">Отправить менеджеру</span>
               <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <p id="formmsg" class="formmsg" role="status"></p>
@@ -619,15 +630,15 @@
         <span><b>sablier</b></span>
       </a>
       <nav class="foot-links">
-        <a href="#services">Услуги</a>
-        <a href="#arsenal">Автоматизации</a>
-        <a href="#process">Как работаем</a>
+        <a href="#services" data-i18n="nav_services">Услуги</a>
+        <a href="#arsenal" data-i18n="nav_arsenal">Автоматизации</a>
+        <a href="#process" data-i18n="nav_process">Как работаем</a>
         <a href="https://t.me/nazar_llk" target="_blank" rel="noopener">Telegram</a>
         <a href="https://wa.me/38268674235" target="_blank" rel="noopener">WhatsApp</a>
         <a href="mailto:nazar200728@gmail.com">Email</a>
       </nav>
     </div>
-    <div class="foot-copy">© 2024–2026 Sablier. Возвращаем время вашей команде.</div>
+    <div class="foot-copy" data-i18n="foot_copy">© 2024–2026 Sablier. Возвращаем время вашей команде.</div>
   </div>
 </footer>
 
@@ -652,24 +663,22 @@
   });
 
   // animated counters
-  const fmt = (v) => Number.isInteger(v) ? v : v;
   function runCount(el){
     const target = parseFloat(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
     const dur = 1300; const start = performance.now();
     function tick(now){
       const p = Math.min((now - start)/dur, 1);
       const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased) + suffix;
+      el.textContent = Math.round(target * eased);
       if (p < 1) requestAnimationFrame(tick);
-      else el.textContent = target + suffix;
+      else el.textContent = target;
     }
     requestAnimationFrame(tick);
   }
   const co = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting){ runCount(e.target); co.unobserve(e.target);} });
   }, { threshold: 0.5 });
-  document.querySelectorAll('.num[data-count]').forEach(el => co.observe(el));
+  document.querySelectorAll('.num [data-count]').forEach(el => co.observe(el));
 
   // arsenal filter
   const filters = document.getElementById('filters');
@@ -683,7 +692,8 @@
     cards.forEach(c => c.classList.toggle('hide', !(f === 'all' || c.dataset.cat === f)));
   });
 
-  // savings calculator
+  // savings calculator (units depend on language)
+  let calcRecalc = function(){};
   (function(){
     const els = {
       hours: document.getElementById('r-hours'),
@@ -701,21 +711,20 @@
       days: document.getElementById('c-days'),
     };
     if (!els.hours) return;
-    const sp = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '); // 1000 -> 1 000
+    const sp = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
     function recalc(){
+      const u = (window.UNITS && window.UNITS[window.currentLang]) || { h:'ч', d:'дн.' };
       const h = +els.hours.value, p = +els.people.value, r = +els.rate.value, a = +els.auto.value;
-      const freedWeek = h * p * (a / 100);
-      const freedYear = Math.round(freedWeek * 52);
-      const money = Math.round(freedYear * r);
-      const days = Math.round(freedYear / 8);
+      const freedYear = Math.round(h * p * (a / 100) * 52);
       out.hours.textContent = h;
       out.people.textContent = p;
       out.rate.textContent = r;
       out.auto.textContent = a;
-      out.money.textContent = '€ ' + sp(money);
-      out.hoursyear.textContent = sp(freedYear) + ' ч';
-      out.days.textContent = sp(days) + ' дн.';
+      out.money.textContent = '€ ' + sp(Math.round(freedYear * r));
+      out.hoursyear.textContent = sp(freedYear) + ' ' + u.h;
+      out.days.textContent = sp(Math.round(freedYear / 8)) + ' ' + u.d;
     }
+    calcRecalc = recalc;
     Object.values(els).forEach(el => el.addEventListener('input', recalc));
     recalc();
   })();
@@ -726,11 +735,12 @@
     const msg = document.getElementById('formmsg');
     const FORM_ENDPOINT = 'https://formspree.io/f/mqevkddn';
     if (!form) return;
+    const t = (k) => (window.I18N && window.I18N[window.currentLang] && window.I18N[window.currentLang][k]) || '';
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type=submit]');
       msg.className = 'formmsg';
-      msg.textContent = 'Отправляем…';
+      msg.textContent = t('form_sending');
       btn.disabled = true;
       try {
         const res = await fetch(FORM_ENDPOINT, {
@@ -741,17 +751,202 @@
         if (res.ok) {
           form.reset();
           msg.className = 'formmsg ok';
-          msg.textContent = 'Готово! Заявка отправлена — свяжемся с вами в ближайшее время.';
+          msg.textContent = t('form_ok');
         } else {
           msg.className = 'formmsg err';
-          msg.textContent = 'Не удалось отправить. Напишите напрямую: @nazar_llk';
+          msg.textContent = t('form_err');
         }
       } catch (err) {
         msg.className = 'formmsg err';
-        msg.textContent = 'Нет связи с сервером. Напишите напрямую: @nazar_llk';
+        msg.textContent = t('form_neterr');
       } finally {
         btn.disabled = false;
       }
     });
   })();
+
+  // ============ I18N: RU / EN / ME ============
+  window.UNITS = {
+    ru: { h:'ч', d:'дн.' },
+    en: { h:'h', d:'days' },
+    me: { h:'h', d:'dana' }
+  };
+  window.I18N = {
+    ru: {}, // русский — это исходный текст в разметке, оставляем как есть
+    en: {
+      nav_services:'Services', nav_departments:'Departments', nav_arsenal:'Automations', nav_calc:'Calculator', nav_process:'How we work', nav_about:'About', nav_cta:'Consultation',
+      hero_eyebrow:'Full-cycle AI automation',
+      hero_h1:'Automate the routine — <em>give</em> your team back its <span class="ul">time</span>',
+      hero_lead:'Sablier builds turnkey AI systems: from consulting and process audits to development, rollout and support. We build what actually saves hours — not what looks good in a demo.',
+      hero_cta1:'Get a consultation', hero_cta2:'See automations',
+      hero_note:'30 minutes — we review your processes and tell you honestly where AI will help',
+      mq1:'AI consulting', mq2:'ML models', mq3:'multi-agent systems', mq4:'RAG bots', mq6:'organic traffic', mq7:'content systems', mq8:'demand forecasting', mq10:'analytics reports',
+      st1_suf:'+', st1_cap:'automations in production',
+      st2_suf:'+', st2_cap:'client companies',
+      st3_suf:' h', st3_cap:'avg. weekly saving per team',
+      st4_suf:'–3 wk', st4_cap:'from task to working solution',
+      svc_eyebrow:'Services', svc_h2:'Three ways to work — <em>from pilot to partnership</em>',
+      svc_p:'Not "AI for the sake of AI". First we study the process, then pick the technology. If a simple automation without AI solves it — we\u2019ll tell you.',
+      svc1_idx:'01 / Consulting', svc1_h3:'Audit & strategy',
+      svc1_p:'We study your departments\u2019 processes and find where AI and automation deliver the most. ROI assessment, task prioritization, an implementation roadmap.',
+      svc1_t1:'process audit',
+      svc2_idx:'02 / Full automation', svc2_h3:'Turnkey systems',
+      svc2_p:'Multi-agent systems, RAG bots, ML models and specialized pipelines. Architecture, backend, interface, deployment — and support after launch.',
+      svc2_t2:'multi-agent',
+      svc3_idx:'03 / Implementation', svc3_h3:'Launch & support',
+      svc3_p:'We embed solutions into the team\u2019s real processes, train your staff and keep systems running in production so they live and grow without us.',
+      svc3_t1:'integration', svc3_t2:'training', svc3_t3:'support',
+      dep_eyebrow:'Where AI works', dep_h2:'We deploy <em>in every department</em>',
+      dep_p:'Specific solutions for each team\u2019s tasks — where routine eats up the most time.',
+      dep1_h:'Sales & CRM', dep1_p:'Lead handling, lead scoring, setup or development of a custom CRM.',
+      dep2_h:'Marketing', dep2_p:'Content systems, competitor analysis, organic traffic and SEO pipelines.',
+      dep3_h:'Support', dep3_p:'Analysis of 100% of calls, communication quality control, reports for managers.',
+      dep4_h:'Procurement & inventory', dep4_p:'Demand forecasting, stock analysis, order-volume recommendations.',
+      dep5_h:'Operations', dep5_p:'Work-chat summaries, tasks pulled from conversations, automated reporting.',
+      dep6_h:'Management', dep6_p:'Daily digests, market monitoring, analytics reports in minutes.',
+      ars_eyebrow:'Solutions arsenal', ars_h2:'Automations that <em>already work</em>',
+      ars_p:'Ready-made scenarios proven in production. Each one is a real working solution, not a demo or concept. We adapt it to your context in 1–3 weeks.',
+      flt_all:'All', flt_content:'Content', flt_sales:'Sales', flt_ops:'Operations', flt_data:'Data & ML',
+      a1_cat:'Content', a1_h:'AI copywriter', a1_p:'Builds a content plan, generates text and images, publishes on schedule. People stay where judgment matters — editing and strategy.',
+      a2_cat:'Marketing', a2_h:'Competitor email funnels', a2_p:'Automatically collects and parses competitors\u2019 email campaigns to analyze their messaging and communication.',
+      a3_cat:'Sales', a3_h:'Call quality control', a3_p:'Transcribes reps\u2019 calls, scores them against your criteria and sends the manager a daily report with recommendations.',
+      a4_cat:'Chatbots', a4_p:'Connects a chatbot to your CRM or Google Sheets — leads land in the system automatically.',
+      a5_cat:'CRM stack', a5_h:'CRM setup & custom CRM', a5_p:'We set up Uspacy, KeyCRM, Pipedrive, HubSpot — or build a custom CRM for your processes. Lead qualification, campaigns.', a5_t3:'custom',
+      a6_cat:'Analytics', a6_h:'Telegram digest', a6_p:'AI reads channels and work chats, pulls out what matters and builds a short daily digest. Instead of 200 unread — 5 sentences on what actually happened.',
+      a7_cat:'Communications', a7_p:'AI reads managers\u2019 group chats, extracts agreements and turns them into tasks for the team.',
+      a8_cat:'Reporting', a8_h:'Automated reports', a8_p:'Daily, weekly and monthly reports arrive in your messenger — no morning stand-ups needed.',
+      a9_cat:'Accounting', a9_h:'AI accountant', a9_p:'Takes receipts as photos and voice notes, recognizes and categorizes expenses, and keeps the books. Instead of sorting screenshots — a ready table.',
+      a10_cat:'Logistics', a10_h:'AI inventory analysis', a10_p:'Looks at stock, forecasts demand and warns managers in advance about items at risk of overstock or shortage.',
+      a11_cat:'Knowledge base', a11_h:'Knowledge-base RAG bot', a11_p:'A chatbot answers the team\u2019s questions from internal documentation — fast and with source links.',
+      a12_cat:'Parsing', a12_h:'Portal parsers', a12_p:'Automatically collect and structure open data from government portals in Ukraine, the US and the EU.',
+      proc_eyebrow:'Ways to work together', proc_h2:'Start small — <em>scale what works</em>',
+      step1_meta:'Step 1 · 2–4 weeks', step1_h:'Pilot', step1_for:'Test AI on a real task with no big commitment.',
+      step1_l1:'Automation of one process or department', step1_l2:'A working solution in your infrastructure', step1_l3:'Measurable impact before scaling',
+      step2_meta:'Step 2 · from 2 months', step2_h:'Full cycle', step2_for:'Roll AI out systematically across several departments at once.',
+      step2_l1:'Process audit and roadmap', step2_l2:'3–5+ turnkey solutions across departments', step2_l3:'ML models and development with Claude Code',
+      step3_meta:'Step 3 · ongoing', step3_h:'Support', step3_for:'AI already works — it needs maintaining and growing.',
+      step3_l1:'Monitoring and system support', step3_l2:'New automations as you grow', step3_l3:'Team training and knowledge transfer',
+      calc_eyebrow:'Savings calculator', calc_h2:'How much automation gives <em>back to you</em>',
+      calc_sub:'Drag the sliders to match your situation — the result updates instantly.',
+      calc_lbl_hours:'Hours per week on routine', calc_lbl_people:'How many people do this', calc_lbl_rate:'Hourly cost', calc_lbl_auto:'How much can be automated',
+      unit_h:'h', calc_rlbl:'Savings per year', calc_cap_hours:'hours freed per year', calc_cap_days:'team workdays',
+      calc_note:'This is an estimate: we calculate exact figures in a free review. Formula — freed hours × rate × 52 weeks.',
+      calc_cta:'Discuss my case',
+      about_eyebrow:'About', about_h2:'Practitioners, not theorists',
+      about_p1:'We build full-cycle AI solutions: from consulting and ML models to production systems. We know business processes from the inside, so we automate what truly saves time — not what looks impressive in a demo.',
+      about_p2:'We work as a technology partner: <strong>audit → architecture → development → rollout across departments → team training → support</strong>. With formal contracts, NDAs and SLAs for corporate clients.',
+      pr1_h:'Process first', pr1_p:'First we study the business process, then choose the technology.',
+      pr2_h:'Honest assessment', pr2_p:'We don\u2019t sell AI where a simple automation is enough.',
+      pr3_h:'We transfer knowledge', pr3_p:'We train your team so the solution lives on without us.',
+      contact_h2:'Tell us about your processes — <em>we\u2019ll show where AI helps</em>',
+      contact_desc:'A 30-minute consultation. No hour-long pitches or sales pressure: we review the task and tell you honestly what\u2019s worth implementing.',
+      contact_direct:'Or message Nazar directly:<br>Telegram <a href="https://t.me/nazar_llk" target="_blank" rel="noopener">@nazar_llk</a> · WhatsApp <a href="https://wa.me/38268674235" target="_blank" rel="noopener">+38 268 674 235</a><br>Email <a href="mailto:nazar200728@gmail.com">nazar200728@gmail.com</a>',
+      form_l_company:'Company name', form_l_contact:'Telegram or email', form_l_msg:'Your request', form_ph_msg:'Briefly about the task you want to automate',
+      form_btn:'Send to manager', form_sending:'Sending…', form_ok:'Done! Your request was sent — we\u2019ll be in touch shortly.', form_err:'Couldn\u2019t send. Message directly: @nazar_llk', form_neterr:'No server connection. Message directly: @nazar_llk',
+      foot_copy:'© 2024–2026 Sablier. Giving time back to your team.'
+    },
+    me: {
+      nav_services:'Usluge', nav_departments:'Sektori', nav_arsenal:'Automatizacije', nav_calc:'Kalkulator', nav_process:'Kako radimo', nav_about:'O nama', nav_cta:'Konsultacija',
+      hero_eyebrow:'AI automatizacija punog ciklusa',
+      hero_h1:'Automatizujemo rutinu — <em>vraćamo</em> vašem timu <span class="ul">vrijeme</span>',
+      hero_lead:'Sablier gradi AI sisteme po sistemu ključ u ruke: od konsaltinga i analize procesa do razvoja, implementacije i podrške. Radimo ono što stvarno štedi sate — a ne ono što dobro izgleda na demou.',
+      hero_cta1:'Zakažite konsultaciju', hero_cta2:'Pogledajte automatizacije',
+      hero_note:'30 minuta — analiziramo vaše procese i iskreno kažemo gdje AI ima efekta',
+      mq1:'AI konsalting', mq2:'ML modeli', mq3:'multiagentni sistemi', mq4:'RAG botovi', mq6:'organski saobraćaj', mq7:'sistemi za sadržaj', mq8:'prognoza potražnje', mq10:'analitički izvještaji',
+      st1_suf:'+', st1_cap:'automatizacija u produkciji',
+      st2_suf:'+', st2_cap:'klijenata',
+      st3_suf:' h', st3_cap:'prosječna ušteda sedmično po timu',
+      st4_suf:'–3 sed', st4_cap:'od zadatka do gotovog rješenja',
+      svc_eyebrow:'Usluge', svc_h2:'Tri formata saradnje — <em>od pilota do partnerstva</em>',
+      svc_p:'Ne „AI radi AI-ja". Prvo analiziramo proces, pa biramo tehnologiju. Ako zadatak rješava jednostavna automatizacija bez AI-ja — reći ćemo vam.',
+      svc1_idx:'01 / Konsalting', svc1_h3:'Analiza i strategija',
+      svc1_p:'Analiziramo procese vaših sektora i pronalazimo gdje AI i automatizacija daju najveći efekat. Procjena ROI-ja, prioritizacija zadataka, plan implementacije.',
+      svc1_t1:'analiza procesa',
+      svc2_idx:'02 / Potpuna automatizacija', svc2_h3:'Sistemi ključ u ruke',
+      svc2_p:'Multiagentni sistemi, RAG botovi, ML modeli i specijalizovani pipeline-ovi. Arhitektura, backend, interfejs, implementacija — i podrška nakon lansiranja.',
+      svc2_t2:'multiagenti',
+      svc3_idx:'03 / Implementacija', svc3_h3:'Lansiranje i podrška',
+      svc3_p:'Ugrađujemo rješenja u stvarne procese tima, obučavamo zaposlene i održavamo sisteme u produkciji da žive i razvijaju se bez nas.',
+      svc3_t1:'integracija', svc3_t2:'obuka', svc3_t3:'podrška',
+      dep_eyebrow:'Gdje AI radi', dep_h2:'Uvodimo <em>u svaki sektor</em>',
+      dep_p:'Konkretna rješenja za zadatke svakog tima — tamo gdje rutina troši najviše vremena.',
+      dep1_h:'Prodaja i CRM', dep1_p:'Obrada upita, skoring lidova, podešavanje ili razvoj custom CRM-a.',
+      dep2_h:'Marketing', dep2_p:'Sistemi za sadržaj, analiza konkurencije, organski saobraćaj i SEO pipeline-ovi.',
+      dep3_h:'Podrška', dep3_p:'Analiza 100% poziva, kontrola kvaliteta komunikacije, izvještaji za menadžment.',
+      dep4_h:'Nabavka i zalihe', dep4_p:'Prognoza potražnje, analiza zaliha, preporuke količina narudžbi.',
+      dep5_h:'Operacije', dep5_p:'Sažeci radnih chatova, zadaci iz prepiske, automatsko izvještavanje.',
+      dep6_h:'Menadžment', dep6_p:'Dnevni sažeci, praćenje tržišta, analitički izvještaji za par minuta.',
+      ars_eyebrow:'Arsenal rješenja', ars_h2:'Automatizacije koje <em>već rade</em>',
+      ars_p:'Gotovi scenariji provjereni u produkciji. Svaki je stvarno radno rješenje, ne demo ni koncept. Prilagođavamo ih vašem kontekstu za 1–3 sedmice.',
+      flt_all:'Sve', flt_content:'Sadržaj', flt_sales:'Prodaja', flt_ops:'Operacije', flt_data:'Podaci i ML',
+      a1_cat:'Sadržaj', a1_h:'AI copywriter', a1_p:'Pravi plan sadržaja, generiše tekstove i slike, objavljuje po rasporedu. Čovjek ostaje tamo gdje treba odluka — uređivanje i strategija.',
+      a2_cat:'Marketing', a2_h:'Email tokovi konkurenata', a2_p:'Automatski prikuplja i obrađuje email kampanje konkurenata radi analize njihove komunikacije i poruka.',
+      a3_cat:'Prodaja', a3_h:'Kontrola kvaliteta poziva', a3_p:'Transkribuje pozive agenata, ocjenjuje ih po vašim kriterijumima i svakodnevno šalje menadžeru izvještaj s preporukama.',
+      a4_cat:'Chatbotovi', a4_p:'Povezuje chatbot s vašim CRM-om ili Google Sheets-om — lidovi automatski ulaze u sistem.',
+      a5_cat:'CRM stack', a5_h:'Podešavanje i custom CRM', a5_p:'Podešavamo Uspacy, KeyCRM, Pipedrive, HubSpot — ili pravimo custom CRM za vaše procese. Kvalifikacija lidova, kampanje.', a5_t3:'custom',
+      a6_cat:'Analitika', a6_h:'Telegram sažetak', a6_p:'AI čita kanale i radne chatove, izdvaja bitno i svaki dan pravi kratak sažetak. Umjesto 200 nepročitanih — 5 rečenica o tome šta se stvarno desilo.',
+      a7_cat:'Komunikacije', a7_p:'AI čita grupne chatove menadžera, izdvaja dogovore i pretvara ih u zadatke za tim.',
+      a8_cat:'Izvještavanje', a8_h:'Automatski izvještaji', a8_p:'Dnevni, sedmični i mjesečni izvještaji stižu u messenger — bez jutarnjih sastanaka.',
+      a9_cat:'Računovodstvo', a9_h:'AI računovođa', a9_p:'Prima račune kao fotografije i glasovne poruke, prepoznaje i kategorizuje troškove i vodi evidenciju. Umjesto sortiranja screenshotova — gotova tabela.',
+      a10_cat:'Logistika', a10_h:'AI analiza zaliha', a10_p:'Prati zalihe, prognozira potražnju i unaprijed upozorava menadžere na artikle s rizikom viška ili nestašice.',
+      a11_cat:'Baza znanja', a11_h:'RAG bot baze znanja', a11_p:'Chatbot odgovara na pitanja tima iz interne dokumentacije — brzo i s linkovima ka izvorima.',
+      a12_cat:'Parsiranje', a12_h:'Parseri portala', a12_p:'Automatski prikupljaju i strukturišu otvorene podatke s portala Ukrajine, SAD-a i EU.',
+      proc_eyebrow:'Formati saradnje', proc_h2:'Počinjemo s malim — <em>skaliramo ono što daje rezultat</em>',
+      step1_meta:'Korak 1 · 2–4 sedmice', step1_h:'Pilot', step1_for:'Provjerite AI na stvarnom zadatku bez velikih obaveza.',
+      step1_l1:'Automatizacija jednog procesa ili sektora', step1_l2:'Radno rješenje u vašoj infrastrukturi', step1_l3:'Mjerljiv efekat prije skaliranja',
+      step2_meta:'Korak 2 · od 2 mjeseca', step2_h:'Puni ciklus', step2_for:'Sistemski uvedite AI u više sektora odjednom.',
+      step2_l1:'Analiza procesa i plan', step2_l2:'3–5+ rješenja ključ u ruke u raznim sektorima', step2_l3:'ML modeli i razvoj na Claude Code',
+      step3_meta:'Korak 3 · stalno', step3_h:'Podrška', step3_for:'AI već radi — treba ga održavati i razvijati.',
+      step3_l1:'Praćenje i podrška sistema', step3_l2:'Nove automatizacije kako rastete', step3_l3:'Obuka tima i prenos znanja',
+      calc_eyebrow:'Kalkulator uštede', calc_h2:'Koliko vam automatizacija <em>vraća lično</em>',
+      calc_sub:'Pomjerajte klizače prema vašoj situaciji — rezultat se ažurira odmah.',
+      calc_lbl_hours:'Sati sedmično na rutinu', calc_lbl_people:'Koliko ljudi to radi', calc_lbl_rate:'Cijena radnog sata', calc_lbl_auto:'Koliki dio se može automatizovati',
+      unit_h:'h', calc_rlbl:'Ušteda godišnje', calc_cap_hours:'oslobođenih sati godišnje', calc_cap_days:'radnih dana tima',
+      calc_note:'Ovo je procjena: tačne brojke računamo na besplatnoj analizi. Formula — oslobođeni sati × cijena × 52 sedmice.',
+      calc_cta:'Razgovarajmo o mom slučaju',
+      about_eyebrow:'O nama', about_h2:'Praktičari, ne teoretičari',
+      about_p1:'Gradimo AI rješenja punog ciklusa: od konsaltinga i ML modela do produkcionih sistema. Poznajemo poslovne procese iznutra, pa automatizujemo ono što stvarno štedi vrijeme, a ne ono što impresivno izgleda na demou.',
+      about_p2:'Radimo kao tehnološki partner: <strong>analiza → arhitektura → razvoj → uvođenje u sektore → obuka tima → podrška</strong>. Sa zvaničnim ugovorima, NDA i SLA za korporativne klijente.',
+      pr1_h:'Prvo proces', pr1_p:'Prvo analiziramo poslovni proces, pa biramo tehnologiju.',
+      pr2_h:'Iskrena procjena', pr2_p:'Ne prodajemo AI tamo gdje je dovoljna jednostavna automatizacija.',
+      pr3_h:'Prenosimo znanje', pr3_p:'Obučavamo vaš tim da rješenje živi i bez nas.',
+      contact_h2:'Recite nam o svojim procesima — <em>pokazaćemo gdje AI ima efekta</em>',
+      contact_desc:'Konsultacija od 30 minuta. Bez prezentacija od sat vremena i pritiska prodaje: analiziramo zadatak i iskreno kažemo šta vrijedi uvesti.',
+      contact_direct:'Ili pišite Nazaru direktno:<br>Telegram <a href="https://t.me/nazar_llk" target="_blank" rel="noopener">@nazar_llk</a> · WhatsApp <a href="https://wa.me/38268674235" target="_blank" rel="noopener">+38 268 674 235</a><br>Email <a href="mailto:nazar200728@gmail.com">nazar200728@gmail.com</a>',
+      form_l_company:'Naziv kompanije', form_l_contact:'Telegram ili email', form_l_msg:'Vaš upit', form_ph_msg:'Ukratko o zadatku koji želite automatizovati',
+      form_btn:'Pošalji menadžeru', form_sending:'Šaljemo…', form_ok:'Gotovo! Upit je poslat — javljamo vam se uskoro.', form_err:'Slanje nije uspjelo. Pišite direktno: @nazar_llk', form_neterr:'Nema veze sa serverom. Pišite direktno: @nazar_llk',
+      foot_copy:'© 2024–2026 Sablier. Vraćamo vrijeme vašem timu.'
+    }
+  };
+
+  // store original Russian text once, so RU can be restored
+  window.currentLang = 'ru';
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.dataset.i18nRu = el.textContent; });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { el.dataset.i18nRuHtml = el.innerHTML; });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.dataset.i18nRuPh = el.placeholder; });
+
+  function applyLang(lang){
+    window.currentLang = lang;
+    document.documentElement.lang = lang;
+    const dict = window.I18N[lang] || {};
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.dataset.i18n;
+      el.textContent = (lang === 'ru') ? el.dataset.i18nRu : (dict[k] != null ? dict[k] : el.dataset.i18nRu);
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const k = el.dataset.i18nHtml;
+      el.innerHTML = (lang === 'ru') ? el.dataset.i18nRuHtml : (dict[k] != null ? dict[k] : el.dataset.i18nRuHtml);
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      const k = el.dataset.i18nPh;
+      el.placeholder = (lang === 'ru') ? el.dataset.i18nRuPh : (dict[k] != null ? dict[k] : el.dataset.i18nRuPh);
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    calcRecalc();
+  }
+
+  document.getElementById('langswitch').addEventListener('click', (e) => {
+    const btn = e.target.closest('.lang-btn');
+    if (btn) applyLang(btn.dataset.lang);
+  });
 </script>
